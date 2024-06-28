@@ -1,0 +1,175 @@
+@use './mixins/font-face' as font;
+@use './mixins/fluid-size' as size;
+
+/* Fonts connect */
+/* ===================================== */
+@include font.font-face('Mulish', 'Mulish-Regular', 400, normal);
+@include font.font-face('Mulish', 'Mulish-Medium', 500, normal);
+@include font.font-face('Mulish', 'Mulish-MediumItalic', 500, italic);
+@include font.font-face('Mulish', 'Mulish-SemiBold', 600, normal);
+
+/* Typography */
+/* ===================================== */
+.title-property {
+	font-family: var(--font-title);
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.03em;
+	color: var(--white);
+	transition: var(--fast);
+
+	&.white {
+		color: var(--white);
+	}
+
+	&.gradient {
+		background: var(--text-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	&.regular {
+		font-weight: 400;
+	}
+
+	&.bold {
+		font-weight: 600;
+	}
+
+	&.italic {
+		font-style: italic;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend .title-property;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	text-transform: uppercase;
+}
+
+h1 {
+	@include size.calculate(font-size, 480px, 1580px, 44px, 90px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+}
+
+h2 {
+	@include size.calculate(font-size, 480px, 1580px, 42px, 76px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+}
+
+h3 {
+	@include size.calculate(font-size, 480px, 1580px, 30px, 60px);
+
+	& + * {
+		margin-top: calc(var(--scale) * 1.2);
+	}
+}
+
+h4 {
+	@include size.calculate(font-size, 480px, 1580px, 28px, 48px);
+	line-height: 1.1;
+
+	& + * {
+		margin-top: calc(var(--scale) * 1);
+	}
+}
+
+h5 {
+	@include size.calculate(font-size, 480px, 1580px, 24px, 32px);
+	line-height: 1.2;
+
+	& + * {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+}
+
+h6 {
+	@include size.calculate(font-size, 480px, 1580px, 18px, 28px);
+	line-height: 1.3;
+	letter-spacing: 0;
+
+	& + * {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+}
+
+blockquote {
+	@include size.calculate(border-radius, 480px, 1580px, 6px, 8px);
+	@include size.calculate(padding, 480px, 1580px, 20px, 40px);
+	@include size.calculate(font-size, 480px, 1580px, 16px, 28px);
+	font-style: italic;
+	font-weight: inherit;
+	line-height: inherit;
+	color: var(--brand-beige) !important;
+
+	* {
+		font-size: inherit;
+		font-style: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		color: inherit;
+	}
+
+	> * + * {
+		margin-top: calc(var(--scale) * 1.2);
+	}
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+.title {
+	@extend h2;
+
+	&.hero {
+		@extend h1;
+	}
+
+	&.italic {
+		font-style: italic;
+	}
+
+	&.xl {
+		@include size.calculate(font-size, 480px, 1580px, 48px, 130px);
+		line-height: 0.9;
+		letter-spacing: -0.04em;
+	}
+}
+
+p,
+b,
+strong,
+span,
+div,
+blockquote {
+	&.accent {
+		@include size.calculate(font-size, 480px, 1580px, 18px, 30px);
+
+		/* Отталкиваем следующий элемент от предыдущего */
+		& + * {
+			margin-top: var(--space-small);
+		}
+	}
+}
+
+small + small {
+	margin-top: calc(var(--scale) * 0.2);
+}

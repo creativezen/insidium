@@ -1,0 +1,140 @@
+@use './mixins/fluid-size' as size;
+
+/* article settings */
+/* ======================== */
+.article-settings {
+	--article-space: calc(var(--scale) * 1.6);
+	--article-space-small: calc(var(--scale) * 1);
+}
+
+/* article prototype */
+/* ======================= */
+.article-proto {
+	@extend .article-settings;
+
+	padding: var(--article-space);
+	background-color: var(--brand-dark);
+	color: var(--white);
+
+	*:not([class]) {
+		color: inherit;
+	}
+}
+
+/* article */
+/* ======================= */
+.article {
+	@extend .article-proto;
+
+	> * + h2 {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+
+	> * + h3 {
+		margin-top: calc(var(--scale) * 1.8);
+	}
+
+	> * + h4 {
+		margin-top: calc(var(--scale) * 1.6);
+	}
+
+	> * + h5 {
+		margin-top: calc(var(--scale) * 1);
+	}
+
+	> * + h6 {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+
+	> * + ul,
+	> * + ol {
+		margin-top: calc(var(--scale) * 0.8);
+	}
+
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + p,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
+		margin-top: calc(var(--scale) * 1);
+	}
+
+	img {
+		border-radius: calc(var(--radius) * 0.4);
+	}
+
+	ol,
+	ul {
+		padding-left: var(--article-space-small);
+		@include size.calculate(font-size, 480px, 1680px, 16px, 22px);
+		line-height: 1.4;
+
+		li {
+			font-size: inherit;
+			line-height: inherit;
+		}
+	}
+
+	ul {
+		li {
+			position: relative;
+			padding-left: 15px;
+
+			&:before {
+				content: '';
+				width: 7px;
+				height: 7px;
+				display: block;
+				position: absolute;
+				top: 0.6em;
+				left: 0;
+				margin: auto;
+				border-radius: 100px;
+				background: var(--btn-link-color);
+			}
+		}
+
+		* {
+			font-size: inherit;
+			line-height: inherit;
+		}
+	}
+
+	blockquote {
+		margin-top: var(--article-space);
+		padding: var(--article-space);
+		border-radius: var(--radius-medium);
+		border: 1px solid var(--gray-dark);
+		@include size.calculate(font-size, 480px, 1680px, 16px, 35px);
+		line-height: 1.4;
+		letter-spacing: -0.02em;
+		background: var(--brand-dark);
+		border: none;
+
+		& + * {
+			margin-top: var(--article-space);
+		}
+	}
+
+	a:not([class]) {
+		margin-top: 15px;
+		display: inline-block;
+		font-weight: 600;
+		@include size.calculate(font-size, 480px, 1680px, 14px, 18px);
+		line-height: 140%;
+		letter-spacing: -0.03em;
+		color: var(--brand-dark-blue);
+		text-decoration: underline;
+
+		&:hover {
+			color: var(--brand-green);
+		}
+	}
+
+	* + .block-offer {
+		margin-top: var(--article-space);
+	}
+}
+
+.article + .article {
+	margin-top: calc(var(--scale) * 1.4);
+}

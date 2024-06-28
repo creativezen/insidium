@@ -1,0 +1,435 @@
+<?php
+/**
+ * Шаблон для отображения мероприятия
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package OAZIS
+ */
+
+get_header();
+?>
+
+<main class="main-single-coach">
+	<section class="section breadcrumbs">
+		<div class="container">
+			<div class="breadcrumbs">
+				<nav aria-label="breadcrumbs">
+					<p>
+						<a href="#">Главная</a>
+						<span class="separator"> — </span>
+						<a href="#">Тренеры</a>
+						<span class="separator"> — </span>
+						<span class="last">Петрова Анастасия</span>
+					</p>
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	<section class="section stream">
+		<div class="container">
+			<div class="section__body">
+				<div class="section__hero person">
+					<div class="section__hero-bg"></div>
+					<div class="section__hero-cta">
+						<div class="card-person">
+							<div class="card-person__header">
+								<h3>Петрова Анастасия</h3>
+							</div>
+							<div class="card-person__body">
+								<p>Психолог, коуч-консультант, бизнес-тренер, автор бестселлеров, успешная бизнес-вумен, блогер с аудиторией свяше 1 000 000 человек</p>
+							</div>
+							<div class="card-person__footer">
+								<blockquote>... Делай только то, что ты действительно хочешь. Не играй по чужим правилам. Если от тебя хотят, чтобы ты повернул направо, жми
+									налево до конца</blockquote>
+							</div>
+						</div>
+					</div>
+					<div class="section__hero-photo">
+						<picture>
+							<source
+								srcset="/wp-content/themes/oazis/img/person/person-hero-photo-01.webp 1x, /wp-content/themes/oazis/img/person/person-hero-photo-01@2x.webp 2x"
+								type="image/webp">
+							<source srcset="/wp-content/themes/oazis/img/person/person-hero-photo-01.jpg 1x, /wp-content/themes/oazis/img/person/person-hero-photo-01@2x.jpg 2x"
+								type="image/jpg">
+							<img loading="lazy" src="/wp-content/themes/oazis/img/person/person-hero-photo-01.jpg" alt="Психолог, коуч-консультант, бизнес-тренер">
+						</picture>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section stream" data-stream-top="no">
+		<div class="container">
+			<div class="section__header">
+				<h2 class="title">Спикер мероприятий</h2>
+			</div>
+			<div class="section__body">
+				<div class="section__slider block">
+					<div class="section__slider-header">
+						<div class="slider-controls">
+							<div class="slider-arrows">
+								<div class="slider-btn prev-coach-events">
+									<button class="button-slider prev">
+										<svg viewBox="0 0 41 15">
+											<use xlink:href="#icon-slider-left"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="slider-btn next-coach-events">
+									<button class="button-slider next">
+										<svg viewBox="0 0 100 15">
+											<use xlink:href="#icon-slider-right"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+							<div class="slider-pagination">
+								<div class="slider-pagination-coach-events"></div>
+							</div>
+						</div>
+					</div>
+					<div class="section__slider-body">
+						<div class="slider swiper js-slider" data-slider-name="coach-events">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-01.webp 1x, /wp-content/themes/oazis/img/events/card-event-img-01@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-01.jpg 1x, /wp-content/themes/oazis/img/events/card-event-img-01@2x.jpg 2x"
+													type="image/jpg">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-event-img-01.jpg" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-img-placeholder.webp 1x, /wp-content/themes/oazis/img/events/card-img-placeholder@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-img-placeholder.png 1x, /wp-content/themes/oazis/img/events/card-img-placeholder@2x.png 2x"
+													type="image/png">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-img-placeholder.png" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.webp 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.jpg 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.jpg 2x"
+													type="image/jpg">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-event-img-02.jpg" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section stream" data-stream-top="no">
+		<div class="container">
+			<div class="section__body">
+				<div class="card-progress">
+					<div class="card-progress__img">
+						<picture>
+							<source
+								srcset="/wp-content/themes/oazis/img/person/person-hero-photo-01.webp 1x, /wp-content/themes/oazis/img/person/person-hero-photo-01@2x.webp 2x"
+								type="image/webp">
+							<source srcset="/wp-content/themes/oazis/img/person/person-hero-photo-01.jpg 1x, /wp-content/themes/oazis/img/person/person-hero-photo-01@2x.jpg 2x"
+								type="image/jpg">
+							<img loading="lazy" src="/wp-content/themes/oazis/img/person/person-hero-photo-01.jpg" alt="Психолог, коуч-консультант, бизнес-тренер">
+						</picture>
+					</div>
+					<div class="card-progress__content">
+						<h3>Достижения</h3>
+						<p>Психолог, коуч-консультант, бизнес-тренер</p>
+						<div class="card-progress__cards">
+							<div class="card-showing">
+								<div class="card-showing__header">
+									<small>Мероприятий в год</small>
+								</div>
+								<div class="card-showing__content">
+									<div class="card-showing__title">
+										<h3 class="gradient">180</h3>
+									</div>
+								</div>
+							</div>
+							<div class="card-showing">
+								<div class="card-showing__header">
+									<small>Образовательных курсов</small>
+								</div>
+								<div class="card-showing__content">
+									<div class="card-showing__title">
+										<h3 class="gradient">300</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<ul class="list-icon">
+							<li class="list-icon__item white">
+								<span class="list-icon__icon">
+									<svg viewBox="0 0 24 24">
+										<use xlink:href="#icon-star"></use>
+									</svg>
+								</span>
+								<p>Дипломированный психолог с 10-летним стажем, коуч-консультант, бизнес-тренер, семейный психолог</p>
+							</li>
+							<li class="list-icon__item white">
+								<span class="list-icon__icon">
+									<svg viewBox="0 0 24 24">
+										<use xlink:href="#icon-star"></use>
+									</svg>
+								</span>
+								<p>Предприниматель, жена и мама</p>
+							</li>
+							<li class="list-icon__item white">
+								<span class="list-icon__icon">
+									<svg viewBox="0 0 24 24">
+										<use xlink:href="#icon-star"></use>
+									</svg>
+								</span>
+								<p>Автор программ развития личности и мотивации, которые прошли более 50 000 человек</p>
+							</li>
+							<li class="list-icon__item white">
+								<span class="list-icon__icon">
+									<svg viewBox="0 0 24 24">
+										<use xlink:href="#icon-star"></use>
+									</svg>
+								</span>
+								<p>Постоянный эксперт-психолог на центральных телеканалах</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section stream" data-stream-top="no">
+		<div class="container">
+			<div class="section__body">
+				<div class="section__slider flex">
+					<div class="section__slider-header">
+						<h2 class="title">Обучающие программы от тренера</h2>
+						<div class="slider-controls">
+							<div class="slider-arrows">
+								<div class="slider-btn prev-events">
+									<button class="button-slider prev">
+										<svg viewBox="0 0 41 15">
+											<use xlink:href="#icon-slider-left"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="slider-btn next-events">
+									<button class="button-slider next">
+										<svg viewBox="0 0 100 15">
+											<use xlink:href="#icon-slider-right"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+							<div class="slider-pagination">
+								<div class="slider-pagination-events">
+								</div>
+							</div>
+						</div>
+						<div class="slider-buttons">
+							<a href="#" class="link-gray">Cмотреть все мероприятия</a>
+						</div>
+					</div>
+					<div class="section__slider-body">
+						<div class="section__slider-bg"></div>
+						<div class="slider swiper js-slider"
+							data-slider-name="events" data-slider-type="flex">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-01.webp 1x, /wp-content/themes/oazis/img/events/card-event-img-01@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-01.jpg 1x, /wp-content/themes/oazis/img/events/card-event-img-01@2x.jpg 2x"
+													type="image/jpg">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-event-img-01.jpg" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.webp 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.jpg 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.jpg 2x"
+													type="image/jpg">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-event-img-02.jpg" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-img-placeholder.webp 1x, /wp-content/themes/oazis/img/events/card-img-placeholder@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-img-placeholder.png 1x, /wp-content/themes/oazis/img/events/card-img-placeholder@2x.png 2x"
+													type="image/png">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-img-placeholder.png" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="card-event">
+										<div class="card-event__img">
+											<picture>
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.webp 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.webp 2x"
+													type="image/webp">
+												<source
+													srcset="/wp-content/themes/oazis/img/events/card-event-img-02.jpg 1x, /wp-content/themes/oazis/img/events/card-event-img-02@2x.jpg 2x"
+													type="image/jpg">
+												<img loading="lazy" src="/wp-content/themes/oazis/img/events/card-event-img-02.jpg" alt="Трансформационный тренинг «Стратегия прорыва»">
+											</picture>
+										</div>
+										<div class="card-event__header">
+											<h5>Трансформационный тренинг «Стратегия прорыва»</h5>
+										</div>
+										<div class="card-event__body">
+											<p>За 3 дня тренинга осознаете, какая стратегия в жизни поможет вам наладить отношения с окружением и собой</p>
+										</div>
+										<div class="card-event__footer">
+											<div class="badge-group">
+												<div class="badge">Москва</div>
+												<div class="badge">10-12 февраля</div>
+												<div class="badge">2 дня</div>
+											</div>
+										</div>
+										<a href="#" class="link-invisible">Подробнее</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<?php
+get_footer();

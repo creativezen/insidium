@@ -1,0 +1,266 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+/* btn-proto */
+/* ================================ */
+.btn-proto {
+	--btn-radius-big: 6px;
+	--btn-radius-medium: 4px;
+	--btn-radius-small: 3px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	text-align: center;
+	border-radius: var(--btn-radius-medium);
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	transition: var(--fast);
+
+	@include mobile.hover {
+		background-color: var(--hover-yellow);
+	}
+
+	&:focus {
+		outline-color: 1px solid var(--gray);
+	}
+
+	&:active {
+		background-color: var(--click-yellow);
+	}
+}
+
+/* btn-btn */
+/* ================================ */
+.button {
+	@extend .btn-proto;
+
+	@include size.calculate(padding-top, 480px, 1580px, 12px, 16px);
+	@include size.calculate(padding-bottom, 480px, 1580px, 12px, 16px);
+	@include size.calculate(padding-inline, 480px, 1580px, 18px, 28px);
+	background-color: var(--brand-yellow);
+	@include size.calculate(font-size, 480px, 1580px, 16px, 20px);
+	font-weight: 600;
+	color: var(--black);
+
+	&.big {
+		@include size.calculate(padding-top, 480px, 1580px, 12px, 20px);
+		@include size.calculate(padding-bottom, 480px, 1580px, 12px, 20px);
+		@include size.calculate(padding-inline, 480px, 1580px, 18px, 32px);
+		border-radius: var(--btn-radius-big);
+		@include size.calculate(font-size, 480px, 1580px, 16px, 24px);
+	}
+
+	&.small {
+		@include size.calculate(padding-top, 480px, 1580px, 8px, 12px);
+		@include size.calculate(padding-bottom, 480px, 1580px, 8px, 12px);
+		@include size.calculate(padding-inline, 480px, 1580px, 14px, 22px);
+		border-radius: var(--btn-radius-small);
+		@include size.calculate(font-size, 480px, 1580px, 14px, 17px);
+	}
+
+	&.zero {
+		background-color: transparent;
+		border: 1px solid var(--brand-yellow);
+		color: var(--white);
+	}
+
+	&.disabled {
+		background-color: var(--disabled-yellow);
+		pointer-events: none;
+	}
+}
+
+/* button for dropdown */
+/* =============================== */
+.button-dropdown {
+	@extend .btn-proto;
+
+	@include size.calculate(padding-top, 480px, 1580px, 8px, 12px);
+	@include size.calculate(padding-bottom, 480px, 1580px, 8px, 12px);
+	@include size.calculate(padding-inline, 480px, 1580px, 14px, 22px);
+	border: 1px solid var(--brand-beige);
+	@include size.calculate(font-size, 480px, 1580px, 14px, 17px);
+	font-weight: 500;
+	color: var(--white);
+
+	@include mobile.hover {
+		background-color: transparent;
+		border-color: var(--white);
+		color: var(--white);
+
+		svg {
+			fill: var(--white);
+		}
+	}
+
+	&:active {
+		border-color: var(--click-yellow);
+
+		svg {
+			fill: var(--click-yellow);
+		}
+	}
+
+	> * {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		letter-spacing: inherit;
+		text-transform: inherit;
+	}
+
+	svg {
+		margin-top: 0.2em;
+		margin-left: 8px;
+		width: 8px;
+		height: 8px;
+		fill: var(--brand-beige);
+		transition: var(--fast);
+	}
+
+	&.disabled {
+		border-color: var(--disabled-yellow);
+		color: var(--disabled-yellow);
+		pointer-events: none;
+
+		svg {
+			fill: var(--disabled-yellow);
+		}
+	}
+}
+
+/* button for menu */
+/* =============================== */
+.button-menu {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 36px;
+	height: 28px;
+	cursor: pointer;
+
+	@media only screen and (max-width: 680px) {
+		width: 30px;
+		height: 22px;
+	}
+
+	@media only screen and (max-width: 480px) {
+		width: 26px;
+		height: 18px;
+	}
+
+	@include mobile.hover {
+		span {
+			width: 100%;
+		}
+	}
+
+	> span {
+		width: 76%;
+		height: 2px;
+		background-color: var(--white);
+		transition: var(--fast);
+
+		&:nth-child(2) {
+			width: 100%;
+		}
+	}
+}
+
+/* buttuon for alert */
+/* ============================== */
+.button-alert {
+	--button-alert-size: calc(var(--scale) * 3);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--button-alert-size);
+	height: var(--button-alert-size);
+	max-width: 44px;
+	max-height: 44px;
+	border-radius: 50%;
+	border: 0;
+	background-color: var(--dark-gray);
+	transition: var(--fast);
+
+	@include mobile.hover {
+		background-color: var(--hover-yellow);
+
+		svg {
+			fill: var(--black);
+		}
+	}
+
+	svg {
+		width: 50%;
+		height: 50%;
+		fill: var(--brand-beige);
+		transition: var(--fast);
+	}
+}
+
+/* buttons for slider */
+/* =========================== */
+.button-slider {
+	height: 15px;
+	border: none;
+
+	@include mobile.hover {
+		svg {
+			fill: var(--hover-yellow);
+		}
+	}
+
+	svg {
+		fill: var(--gray);
+		transition: var(--fast);
+	}
+
+	&.prev {
+		width: 41px;
+	}
+
+	&.next {
+		width: 100px;
+	}
+}
+
+/* button for play */
+/* ======================= */
+.button-play {
+	@include size.calculate(width, 480px, 1580px, 40px, 80px);
+	@include size.calculate(height, 480px, 1580px, 40px, 80px);
+	border: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba($color: #ffffff, $alpha: 0.2);
+	backdrop-filter: blur(8px);
+	transition: var(--fast);
+
+	svg {
+		margin-left: 0.3em;
+		width: 26%;
+		fill: var(--brand-dark);
+		transition: var(--fast);
+	}
+}
+
+/* button for play */
+/* ======================= */
+.button-zoom {
+	@extend .button-play;
+
+	svg {
+		margin-left: 0;
+		width: 40%;
+		fill: var(--brand-dark);
+		transition: var(--fast);
+	}
+}

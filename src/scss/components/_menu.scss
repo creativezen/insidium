@@ -1,0 +1,59 @@
+@use '../mixins/fluid-size' as size;
+
+.menu-mobile {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--brand-dark);
+	transform: translateX(-100%);
+	z-index: 100;
+	transition: var(--fast);
+
+	&__header {
+		& + * {
+			margin-top: calc(var(--scale) * 1);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include size.calculate(font-size, 380px, 680px, 18px, 22px);
+		font-weight: 600;
+		line-height: 1;
+		text-decoration: none;
+		color: var(--color);
+
+		* {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+			text-decoration: inherit;
+			color: inherit;
+		}
+
+		> * + * {
+			margin-top: 12px;
+		}
+
+		& + * {
+			margin-top: calc(var(--scale) * 2);
+		}
+	}
+
+	&__footer {
+		display: block;
+	}
+
+	&.active {
+		transform: translateX(0);
+	}
+}

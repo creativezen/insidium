@@ -1,0 +1,62 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+.dropdown-list {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 260px;
+	margin: 0;
+	border: 1px solid var(--dark-border);
+	border-radius: var(--radius-small);
+	@include size.calculate(font-size, 480px, 1580px, 14px, 18px);
+	color: var(--gray);
+	z-index: 999;
+	text-decoration: none;
+
+	transform: translateY(10%);
+	opacity: 0;
+	pointer-events: none;
+	transition: var(--fast);
+
+	@media only screen and (max-width: 480px) {
+		width: 200px;
+	}
+
+	li {
+		@include size.calculate(padding-top, 480px, 1580px, 8px, 12px);
+		@include size.calculate(padding-bottom, 480px, 1580px, 8px, 12px);
+		@include size.calculate(padding-inline, 480px, 1580px, 12px, 16px);
+		background-color: var(--dark-gray);
+		transition: var(--fast);
+
+		&:hover {
+			background-color: var(--hover-gray);
+			color: var(--white);
+		}
+
+		> * {
+			text-decoration: inherit;
+		}
+	}
+}
+
+.dropdown-control {
+	position: relative;
+
+	&.active {
+		.button-dropdown {
+			border-color: var(--click-yellow);
+
+			svg {
+				fill: var(--click-yellow);
+			}
+		}
+
+		.dropdown-list {
+			transform: translateY(10px);
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}

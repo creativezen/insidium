@@ -1,0 +1,6 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+.link-prototype {
+	text-decoration: none;
+}

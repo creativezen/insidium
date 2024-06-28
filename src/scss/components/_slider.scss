@@ -1,0 +1,119 @@
+@use '../mixins/fluid-size' as size;
+
+.slider {
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		@include size.calculate(width, 480px, 1580px, 30px, 100px);
+		height: 100%;
+		background: linear-gradient(270deg, #000000 10%, rgba(0, 0, 0, 0) 100%);
+		z-index: 10;
+	}
+
+	.swiper-slide {
+		@include size.calculate(max-width, 480px, 1580px, 420px, 660px);
+		height: 100%;
+	}
+
+	&[data-slider-type='flex'] {
+		.swiper-slide {
+			@include size.calculate(max-width, 480px, 1580px, 420px, 500px);
+		}
+	}
+
+	&[data-slider-name='staf'] {
+		.swiper-slide {
+			@include size.calculate(max-width, 480px, 1580px, 280px, 360px);
+		}
+	}
+
+	&[data-slider-name='feedbacks-video'],
+	&[data-slider-name='feedbacks-screen'] {
+		.swiper-slide {
+			@include size.calculate(max-width, 480px, 1580px, 360px, 480px);
+		}
+	}
+
+	&[data-slider-name='articles'] {
+		.swiper-slide {
+			@include size.calculate(max-width, 480px, 1580px, 300px, 380px);
+
+			[class*='card'].post {
+				height: 400px;
+			}
+		}
+	}
+
+	&[data-slider-name='results'] {
+		.swiper-slide {
+			@include size.calculate(max-width, 480px, 1580px, 460px, 880px);
+		}
+	}
+
+	&.light {
+		&::after {
+			background: linear-gradient(
+				270deg,
+				var(--gray-light) 10%,
+				rgba(237, 237, 237, 0) 100%
+			);
+		}
+	}
+}
+
+.slider-controls {
+	display: flex;
+}
+
+.slider-arrows {
+	display: flex;
+	align-items: center;
+
+	> * + * {
+		margin-left: 14px;
+	}
+}
+
+.slider-pagination {
+	@include size.calculate(font-size, 480px, 1580px, 16px, 24px);
+	font-weight: 500;
+	line-height: 1;
+	color: var(--white);
+
+	* {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		color: inherit;
+	}
+
+	&.black {
+		color: var(--black);
+	}
+
+	&.left-auto {
+		padding-left: calc(var(--scale) * 1.6);
+		margin-left: auto;
+	}
+}
+
+.slider-buttons {
+	margin-top: calc(var(--scale) * 1.6);
+	@include size.calculate(font-size, 480px, 1580px, 16px, 24px);
+	font-weight: 500;
+	line-height: 1.2;
+	color: var(--brand-beige);
+
+	&:hover {
+		color: var(--white);
+	}
+
+	* {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		color: inherit;
+	}
+}

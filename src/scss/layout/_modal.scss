@@ -1,0 +1,166 @@
+@use './mixins/fluid-size' as size;
+@use './mixins/disable-mob-hover' as mobile;
+
+.disable-scroll {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.forweb-modal {
+	--transition-time: 0.3s;
+	--close-size: 28px;
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	backdrop-filter: blur(2px);
+	background-color: rgba(57, 57, 57, 0.5);
+	text-align: center;
+	transition: opacity var(--transition-time), visibility var(--transition-time);
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1000;
+	cursor: pointer;
+
+	.form__body_item {
+		> * + .label-checkbox {
+			margin-top: 12px;
+		}
+	}
+}
+
+.forweb-modal:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.forweb-modal__header {
+	position: relative;
+	max-width: 90%;
+
+	& + .forweb-modal__body {
+		@include size.calculate(margin-top, 480px, 1680px, 20px, 50px);
+	}
+}
+
+.forweb-modal__container {
+	position: relative;
+	display: inline-block;
+	margin: 40px auto;
+	width: 90%;
+	@include size.calculate(border-radius, 480px, 1680px, 15px, 30px);
+	vertical-align: middle;
+	box-shadow: 0px 10px 40px 0.12px rgba(4, 44, 56, 0.08);
+	text-align: left;
+	cursor: default;
+	display: none;
+
+	/* Ширина окон с формой */
+	&[data-forweb-target='modal-question'],
+	&[data-forweb-target='modal-email-support'],
+	&[data-forweb-target='modal-subscribe'] {
+		max-width: 640px;
+	}
+
+	&.video {
+		--video-close-size: 44px;
+
+		min-height: 70vh;
+
+		.modal-video {
+			min-height: inherit;
+			height: 100%;
+			width: 100%;
+		}
+
+		[class*='__iframe'] {
+			min-height: inherit;
+			height: 100%;
+			width: 100%;
+		}
+
+		[class*='__close'] {
+			background-color: var(--black);
+			width: var(--video-close-size);
+			height: var(--video-close-size);
+			border-radius: 50%;
+		}
+	}
+}
+
+.forweb-modal__content {
+	min-height: inherit;
+}
+
+.forweb-modal__close {
+	position: absolute;
+	@include size.calculate(right, 480px, 1680px, 10px, 28px);
+	@include size.calculate(top, 480px, 1680px, 10px, 28px);
+	border: none;
+	padding: 0;
+	width: var(--close-size);
+	height: var(--close-size);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.6453 14.0002L22.9953 6.66188C23.2149 6.4422 23.3384 6.14423 23.3384 5.83355C23.3384 5.52286 23.2149 5.2249 22.9953 5.00522C22.7756 4.78553 22.4776 4.66211 22.1669 4.66211C21.8562 4.66211 21.5583 4.78553 21.3386 5.00522L14.0003 12.3552L6.66192 5.00522C6.44223 4.78553 6.14427 4.66211 5.83359 4.66211C5.5229 4.66211 5.22494 4.78553 5.00525 5.00522C4.78557 5.2249 4.66215 5.52286 4.66215 5.83355C4.66215 6.14423 4.78557 6.4422 5.00525 6.66188L12.3553 14.0002L5.00525 21.3385C4.8959 21.447 4.80911 21.576 4.74988 21.7182C4.69065 21.8604 4.66016 22.0129 4.66016 22.1669C4.66016 22.3209 4.69065 22.4734 4.74988 22.6156C4.80911 22.7577 4.8959 22.8868 5.00525 22.9952C5.11371 23.1046 5.24275 23.1914 5.38491 23.2506C5.52708 23.3098 5.67957 23.3403 5.83359 23.3403C5.9876 23.3403 6.14009 23.3098 6.28226 23.2506C6.42443 23.1914 6.55346 23.1046 6.66192 22.9952L14.0003 15.6452L21.3386 22.9952C21.447 23.1046 21.5761 23.1914 21.7182 23.2506C21.8604 23.3098 22.0129 23.3403 22.1669 23.3403C22.3209 23.3403 22.4734 23.3098 22.6156 23.2506C22.7578 23.1914 22.8868 23.1046 22.9953 22.9952C23.1046 22.8868 23.1914 22.7577 23.2506 22.6156C23.3099 22.4734 23.3404 22.3209 23.3404 22.1669C23.3404 22.0129 23.3099 21.8604 23.2506 21.7182C23.1914 21.576 23.1046 21.447 22.9953 21.3385L15.6453 14.0002Z' fill='%23ECB86A'/%3E%3C/svg%3E%0A");
+	background-size: var(--close-size);
+	cursor: pointer;
+}
+
+.forweb-modal__title {
+	display: inline-block;
+	font-weight: 700;
+	@include size.calculate(font-size, 480px, 1680px, 32px, 40px);
+	line-height: 120%;
+	letter-spacing: -0.03em;
+}
+
+.forweb-modal.is-open {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity var(--transition-time), visibility var(--transition-time);
+}
+
+.forweb-modal__container.forweb-modal-open {
+	display: inline-block;
+}
+
+.fade {
+	opacity: 0;
+}
+
+.fade,
+.fade.animate-open {
+	transition: opacity var(--transition-time);
+}
+
+.fade.animate-open {
+	opacity: 1;
+}
+
+.fadeInUp {
+	opacity: 0;
+	transform: translateY(-100px);
+}
+
+.fadeInUp,
+.fadeInUp.animate-open {
+	transition: transform var(--transition-time), opacity var(--transition-time);
+}
+
+.fadeInUp.animate-open {
+	opacity: 1;
+	transform: translateY(0);
+}

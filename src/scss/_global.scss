@@ -1,0 +1,130 @@
+@use './mixins/fluid-size' as size;
+
+body {
+	background-color: var(--black);
+	font-family: var(--font-text);
+	font-weight: var(--font-weight);
+	@include size.calculate(font-size, 480px, 1580px, 16px, 20px);
+	line-height: var(--font-height);
+	letter-spacing: var(--font-spacing);
+	color: var(--text-gray);
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+	object-fit: cover;
+}
+
+b,
+strong {
+	font-weight: 600;
+}
+
+a {
+	font-weight: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	text-decoration: underline;
+	transition: var(--fast);
+
+	&:not([class]):hover {
+		color: var(--brand-yellow);
+	}
+}
+
+.block {
+	width: 100%;
+	min-width: 100%;
+}
+
+.black {
+	color: var(--black);
+}
+
+.white {
+	color: var(--white);
+}
+
+.beige {
+	color: var(--brand-beige);
+}
+
+.purple {
+	color: var(--brand-purple);
+}
+
+.yellow {
+	color: var(--brand-yellow);
+}
+
+.italic {
+	font-style: italic;
+}
+
+.is-hidden {
+	display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	clip: rect(0 0 0 0);
+}
+
+[data-visible='mobile'] {
+	@extend .is-hidden;
+
+	&.visible-mobile {
+		display: block !important;
+	}
+}
+
+[data-visible='desktop'] {
+	display: block !important;
+
+	&.visible-desktop {
+		@extend .is-hidden;
+	}
+}
+
+.sticky {
+	position: sticky;
+	top: var(--space);
+}
+
+.relative {
+	position: relative;
+
+	&[data-index='2'] {
+		z-index: 2;
+	}
+
+	&[data-index='3'] {
+		z-index: 3;
+	}
+
+	&[data-index='4'] {
+		z-index: 4;
+	}
+
+	&[data-index='5'] {
+		z-index: 5;
+	}
+}
+
+/* Делаем копирайт Яндекс Карт невидимым */
+/* [class*='copyrights-pane'] {
+	display: none !important;
+} */
+
+/* Опционально. Длеаем карту чёрно-белой */
+/* [class*='ground-pane'] {
+	filter: grayscale(1);
+} */

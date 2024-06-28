@@ -1,0 +1,342 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+/* list settings */
+/* ========================== */
+.list-settings {
+	--list-space-small: calc(var(--scale) * 1);
+	--list-space-medium: calc(var(--scale) * 1.4);
+	--list-space-xl: calc(var(--scale) * 1.8);
+	--list-space-xxl: calc(var(--scale) * 2.4);
+	--list-space: calc(var(--scale) * 1.2);
+}
+
+.list-proto {
+	@extend .list-settings;
+
+	list-style: none;
+	color: inherit;
+
+	li + * {
+		margin-top: calc(var(--scale) * 0.4);
+	}
+}
+
+/* list */
+/* ========================== */
+ul:not([class]):not(.footer-navigation__links) {
+	@extend .list-proto;
+
+	color: inherit;
+
+	li:not([class]) {
+		position: relative;
+		padding-left: var(--list-space-small);
+		font-size: inherit;
+		font-weight: 400;
+		line-height: 1.4;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 6px;
+			height: 6px;
+			display: block;
+			top: 0.6em;
+			left: 0;
+			z-index: 2;
+			background-color: var(--brand-beige);
+			border-radius: 100px;
+		}
+	}
+}
+
+ol:not([class]) {
+	@extend .list-proto;
+
+	counter-reset: my-counter;
+
+	li:not([class]) {
+		counter-increment: my-counter;
+
+		&::before {
+			content: counter(my-counter) '. ';
+			color: var(--brand-beige);
+			font-weight: inherit;
+		}
+	}
+}
+
+/* list for steps */
+/* ======================== */
+.list-step {
+	@extend .list-proto;
+	background-color: var(--black);
+
+	&__item {
+		list-style: none;
+		background-color: var(--black);
+		background-color: var(--black);
+		padding-top: var(--list-space-xxl);
+		padding-bottom: var(--list-space-xxl);
+		border-top: 1px solid var(--dark-beige);
+		border-bottom: 1px solid var(--dark-beige);
+
+		& + * {
+			border-top: none;
+		}
+	}
+
+	&__badge {
+		& + * {
+			margin-top: var(--list-space-xxl);
+		}
+	}
+}
+
+/* list for billet */
+/* ======================= */
+.list-billet {
+	@extend .list-proto;
+
+	@include size.calculate(font-size, 480px, 1580px, 20px, 28px);
+	font-weight: 400;
+	line-height: 1.2;
+	color: var(--brand-beige);
+
+	* {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		color: inherit;
+	}
+
+	&__item {
+		padding: var(--list-space-xl);
+		display: flex;
+		border: 1px solid var(--dark-border);
+		border-radius: var(--radius-medium);
+		background-color: var(--brand-dark);
+		transition: var(--fast);
+
+		@include mobile.hover {
+			background-color: var(--black);
+			border-color: var(--dark-beige);
+		}
+
+		& + * {
+			margin-top: var(--list-space-medium);
+		}
+	}
+
+	&__icon {
+		& + * {
+			margin-left: var(--list-space-medium);
+		}
+
+		svg {
+			margin-top: 0.1em;
+			@include size.calculate(width, 480px, 1580px, 24px, 34px);
+			@include size.calculate(height, 480px, 1580px, 24px, 34px);
+			fill: var(--white);
+		}
+	}
+}
+
+/* list for icons */
+/* ====================== */
+.list-icon {
+	@extend .list-proto;
+
+	&__item {
+		display: flex;
+		& + * {
+			margin-top: var(--list-space-small);
+		}
+	}
+
+	&__icon {
+		& + * {
+			margin-left: var(--list-space-small);
+		}
+		svg {
+			margin-top: 0.1em;
+			@include size.calculate(width, 480px, 1580px, 18px, 24px);
+			@include size.calculate(height, 480px, 1580px, 18px, 24px);
+			fill: var(--brand-beige);
+		}
+	}
+}
+
+/* list for numbers */
+/* ===================== */
+.list-number {
+	@extend .list-proto;
+
+	&__item {
+		display: flex;
+		padding: var(--list-space-xl) 0;
+		border-top: 1px solid rgba($color: #816f6f, $alpha: 0.6);
+		border-bottom: 1px solid rgba($color: #816f6f, $alpha: 0.6);
+
+		@media only screen and (max-width: 680px) {
+			display: block;
+		}
+
+		@include mobile.hover {
+			[class*='__title'] {
+				color: var(--brand-beige);
+			}
+
+			[class*='__num'],
+			[class*='__body'] {
+				color: var(--white);
+			}
+
+			[class*='__img'] img {
+				filter: grayscale(0);
+			}
+		}
+
+		> * + * {
+			margin-left: var(--list-space-xl);
+
+			@media only screen and (max-width: 680px) {
+				margin-left: 0;
+				margin-top: var(--list-space-xl);
+			}
+		}
+
+		& + * {
+			border-top: none;
+		}
+	}
+
+	&__num {
+		margin-top: 0.4em;
+		flex-shrink: 0;
+		width: 60px;
+		@include size.calculate(font-size, 480px, 1580px, 18px, 24px);
+		line-height: 1;
+
+		* {
+			color: inherit;
+			transition: var(--fast);
+		}
+	}
+
+	&__body {
+		flex-shrink: 0;
+		padding-right: var(--list-space-xl);
+		width: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		@media only screen and (max-width: 680px) {
+			width: 100%;
+		}
+
+		*:not([class]) {
+			color: inherit;
+		}
+	}
+
+	&__title {
+		color: var(--white);
+
+		& + * {
+			margin-top: var(--list-space-small);
+		}
+
+		* {
+			color: inherit;
+			transition: var(--fast);
+		}
+	}
+
+	&__text {
+		padding-top: 0.2em;
+		flex: auto;
+		@include size.calculate(font-size, 480px, 1580px, 16px, 24px);
+		color: var(--white);
+
+		* {
+			font-size: inherit;
+			color: inherit;
+		}
+	}
+
+	&__img {
+		flex-shrink: 0;
+		width: 220px;
+		height: 320px;
+		border-radius: 300px;
+		overflow: hidden;
+		background-color: var(--brand-dark);
+
+		@media only screen and (max-width: 680px) {
+			margin-inline: auto;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: inherit;
+			filter: grayscale(100);
+			transition: var(--slow);
+		}
+	}
+
+	&.image {
+		[class*='__title'] {
+			max-width: none;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	&.default {
+		[class*='__title'] {
+			flex-shrink: 0;
+			width: 40%;
+			max-width: 400px;
+
+			@media only screen and (max-width: 680px) {
+				width: 100%;
+			}
+
+			& + * {
+				margin-top: 0;
+				margin-left: var(--list-space-xl);
+
+				@media only screen and (max-width: 680px) {
+					margin-top: 20px;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+/* list for sticky block */
+/* =========================== */
+.list-sticky {
+	@extend .list-proto;
+
+	position: relative;
+
+	&__item {
+		@include size.calculate(height, 420px, 1580px, 560px, 700px);
+
+		& + * {
+			margin-top: var(--list-space-medium);
+		}
+
+		.card-cover {
+			height: 100%;
+			min-height: inherit;
+		}
+	}
+}

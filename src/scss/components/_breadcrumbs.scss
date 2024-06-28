@@ -1,0 +1,57 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+/* breadcrumbs standart */
+/* =============================================== */
+.breadcrumbs {
+	--breadcrumbs-space: calc(var(--scale) * 0.4);
+
+	position: relative;
+	overflow: scroll;
+	/* Hide scrollbar for IE, Edge and Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 30px;
+		height: 100%;
+		background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		@include size.calculate(font-size, 480px, 1680px, 12px, 16px);
+		line-height: 1;
+		letter-spacing: 0.01em;
+		text-transform: none;
+		color: var(--gray);
+
+		> * + * {
+			position: relative;
+			margin-left: var(--breadcrumbs-space);
+		}
+
+		a {
+			transition: var(--fast);
+			text-decoration: none;
+
+			@include mobile.hover {
+				color: var(--white);
+			}
+		}
+
+		.last {
+			color: var(--brand-yellow);
+		}
+	}
+}

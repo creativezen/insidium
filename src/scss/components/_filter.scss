@@ -1,0 +1,96 @@
+@use '../mixins/disable-mob-hover' as mobile;
+
+.filter-tabs {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	overflow: auto;
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 46px;
+		height: 46px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--black);
+		box-shadow: 0 0 30px 30px rgba($color: #000000, $alpha: 0.8);
+		cursor: pointer;
+
+		@include mobile.hover {
+			svg {
+				stroke: var(--white);
+			}
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+			transition: var(--fast);
+		}
+
+		&.left {
+			left: 0;
+		}
+
+		&.right {
+			right: 0;
+		}
+	}
+
+	&__item {
+		& + * {
+			margin-left: calc(var(--scale) * 0.8);
+		}
+
+		input {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			border: 0;
+			clip: rect(0, 0, 0, 0);
+			-webkit-clip-path: inset(100%);
+			clip-path: inset(100%);
+
+			&:checked + [class*='__name'] {
+				background-color: var(--black);
+				border-color: var(--dark-beige);
+				color: var(--white);
+			}
+		}
+	}
+
+	&__name {
+		display: inline-block;
+		padding: 0.5em 1em;
+		border: 1px solid transparent;
+		border-radius: 100px;
+		background-color: var(--brand-dark);
+		cursor: pointer;
+		transition: var(--fast);
+
+		@include mobile.hover {
+			color: var(--white);
+			border-color: var(--hover-gray);
+		}
+	}
+}
+
+.filter-event {
+	padding-top: var(--space);
+	border-top: 1px solid var(--dark-beige);
+	display: flex;
+	align-items: center;
+
+	> * + * {
+		margin-left: auto;
+	}
+}

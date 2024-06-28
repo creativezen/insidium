@@ -1,0 +1,203 @@
+@use './mixins/fluid-size' as size;
+
+
+.home-directions {
+	.section__header {
+		.grid-group {
+			align-items: center;
+		}
+	}
+}
+
+
+.home-banner-main {
+	@media only screen and (max-width: 1320px) {
+		.grid-child[data-grid='3'] {
+			grid-column: 3 span;
+		}
+	}
+
+	@media only screen and (max-width: 1540px) {
+		h1 {
+			font-size: 60px;
+		}
+	}
+
+	@media only screen and (max-width: 980px) {
+		h1 {
+			font-size: 50px;
+		}
+	}
+
+	@media only screen and (max-width: 780px) {
+		h1 {
+			font-size: 40px;
+			hyphens: auto;
+		}
+	}
+
+	@media only screen and (max-width: 980px) {
+		.grid-child[data-grid='3'],
+		.grid-child[data-grid='9'] {
+			grid-column: 12 span;
+		}
+	}
+}
+
+
+.home-specialists {
+	background: var(--blue-bg-block);
+	overflow: hidden;
+
+	.grid-child[data-grid='12'] {
+		& + .grid-child[data-grid='12'] {
+			@include size.calculate(margin-top, 480px, 1680px, 15px, 50px);
+		}
+	}
+}
+
+
+.home-popular-services {
+	.section__body {
+		overflow: hidden;
+	}
+
+	.swiper-slide {
+		height: auto;
+	}
+}
+
+
+.home-offer {
+	background: var(--brand-black);
+
+	h2 {
+		color: var(--white);
+	}
+
+	.banner-offer {
+		position: sticky;
+		top: 0;
+	}
+}
+
+
+.home-winners {
+	overflow: hidden;
+
+	.grid-child[data-grid='12'] {
+		& + .grid-child[data-grid='12'] {
+			@include size.calculate(margin-top, 480px, 1680px, 15px, 50px);
+		}
+	}
+}
+
+
+.home-reviews {
+	background: var(--blue-bg-block);
+
+	.title {
+		@include size.calculate(margin-top, 480px, 1680px, 15px, 30px);
+	}
+
+	.section__body {
+		@include size.calculate(margin-top, 480px, 1680px, 15px, 50px);
+	}
+
+	.grid-child {
+		&[data-grid='9'],
+		&[data-grid='3'] {
+			@media only screen and (max-width: 1380px) {
+				-ms-grid-column-span: 12;
+				grid-column: 12 span;
+			}
+		}
+	}
+}
+
+
+.home-news {
+	overflow: hidden;
+}
+
+
+.home-faq {
+	background: var(--blue-bg-block);
+
+	.section__body {
+		& + .section__footer {
+			@include size.calculate(margin-top, 480px, 1680px, 20px, 80px);
+		}
+	}
+
+	.section__footer {
+		font-weight: 400;
+		@include size.calculate(font-size, 480px, 1680px, 16px, 26px);
+		line-height: 140%;
+		letter-spacing: -0.03em;
+		color: var(--btn-link-color);
+
+		.grid-child {
+			& + .grid-child {
+				text-align: right;
+
+				@media only screen and (min-width: 780px) {
+					.btn {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.home-clinical-researches {
+	overflow: hidden;
+
+	.swiper-slide {
+		@media only screen and (min-width: 980px) {
+			max-width: 890px;
+		}
+	}
+}
+
+
+.home-about {
+	background: var(--blue-bg-block);
+
+	@media only screen and (max-width: 1320px) {
+		.grid-child[data-grid='3'] {
+			-ms-grid-column-span: 3;
+			grid-column: 3 span;
+		}
+	}
+
+	@media only screen and (max-width: 980px) {
+		.grid-child[data-grid='3'],
+		.grid-child[data-grid='9'] {
+			-ms-grid-column-span: 12;
+			grid-column: 12 span;
+		}
+	}
+}
+
+
+.home-info {
+	padding-top: 0 !important;
+	background: var(--container-bg);
+
+	.grid-child {
+		&[data-grid='9'] {
+			@media only screen and (max-width: 1320px) {
+				grid-column: 12 span;
+			}
+		}
+
+		&[data-grid='3'] {
+			@media only screen and (max-width: 1320px) {
+				grid-column: 12 span;
+			}
+		}
+	}
+}

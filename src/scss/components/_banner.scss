@@ -1,0 +1,440 @@
+@use '../mixins/fluid-size' as size;
+@use '../mixins/disable-mob-hover' as mobile;
+
+/* banner settings */
+/* ================================ */
+.banner-settings {
+	--banner-big: 600px;
+	--banner-space-big: calc(var(--scale) * 2);
+	--banner-space-medium: calc(var(--scale) * 1.4);
+	--banner-space-small: calc(var(--scale) * 1);
+	--banner-radius: 12px;
+}
+
+/* banner-proto */
+/* ================================ */
+.banner-proto {
+	@extend .banner-settings;
+
+	min-height: 360px;
+	position: relative;
+	overflow: hidden;
+}
+
+/* banner for main version */
+/* ============================= */
+.banner {
+	@extend .banner-proto;
+
+	display: flex;
+	align-items: center;
+	border-radius: var(--banner-radius);
+	background-color: var(--brand-dark);
+
+	@media only screen and (max-width: 680px) {
+		flex-direction: column-reverse;
+	}
+
+	&__content {
+		width: 60%;
+		max-width: 900px;
+		padding: var(--banner-space-big);
+		position: inherit;
+		z-index: 4;
+
+		@media only screen and (max-width: 680px) {
+			width: 100%;
+			max-width: none;
+			padding-top: 0;
+		}
+	}
+
+	&__title {
+		& + * {
+			margin-top: var(--banner-space-medium);
+		}
+	}
+
+	&__text {
+		@include size.calculate(font-size, 480px, 1580px, 18px, 24px);
+		font-weight: 400;
+		line-height: 1.4;
+		color: var(--white);
+
+		& + * {
+			margin-top: var(--banner-space-small);
+		}
+
+		* {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+			color: inherit;
+		}
+	}
+
+	&__img {
+		position: absolute;
+		right: 0;
+		bottom: -30px;
+		width: 90%;
+		height: 90%;
+		@include size.calculate(max-width, 480px, 1580px, 320px, 420px);
+		@include size.calculate(max-height, 480px, 1580px, 320px, 420px);
+		z-index: 3;
+
+		@media only screen and (max-width: 980px) {
+			right: -10%;
+		}
+
+		@media only screen and (max-width: 680px) {
+			position: relative;
+			right: 0;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+
+			@media only screen and (max-width: 680px) {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+	&__button {
+		[class*='button'] {
+			@media only screen and (max-width: 680px) {
+				width: 100%;
+			}
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		width: 80%;
+		height: 100%;
+		right: -5%;
+		bottom: 0;
+		background-repeat: no-repeat;
+		background-position: center right;
+		background-image: url("/wp-content/themes/oazis/img/svg/svg-hero-background-01.svg");
+		background-size: cover;
+		opacity: 1;
+		transform: scale(1);
+		transition: var(--slow);
+		pointer-events: none;
+
+		@media only screen and (max-width: 680px) {
+			right: 0;
+			width: 100%;
+		}
+	}
+
+	&__circles {
+		position: absolute;
+		height: 120%;
+		width: 120%;
+		top: -20%;
+		right: -50%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-image: url("/wp-content/themes/oazis/img/svg/svg-card-image-circles.svg");
+		background-size: contain;
+		opacity: 1;
+		transition: var(--slow);
+		pointer-events: none;
+
+		@media only screen and (max-width: 680px) {
+			width: 140%;
+			height: 140%;
+		}
+	}
+
+	&.product {
+		[class*='__img'] {
+			bottom: 0;
+		}
+
+		[class*='__bg'] {
+			width: 60%;
+
+			@media only screen and (max-width: 680px) {
+				width: 100%;
+			}
+		}
+
+		&.small {
+			@media only screen and (max-width: 680px) {
+				display: block;
+			}
+
+			[class*='__title'] {
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					& + * {
+						margin-top: 0 !important;
+					}
+				}
+			}
+
+			[class*='__img'] {
+				max-width: none;
+				max-height: none;
+				width: 280px;
+				height: 280px;
+				top: 50%;
+				bottom: auto;
+				right: -50px;
+				transform: translateY(-50%);
+
+				@media only screen and (max-width: 680px) {
+					width: 180px;
+					height: 180px;
+				}
+			}
+
+			[class*='__bg'] {
+				right: 0;
+			}
+		}
+	}
+
+	&.shop {
+		min-height: 500px;
+
+		@media only screen and (max-width: 680px) {
+			flex-direction: column;
+			min-height: auto;
+
+			[class*='__content'] {
+				padding-top: var(--banner-space-big);
+			}
+		}
+
+		[class*='__img'] {
+			@include size.calculate(width, 480px, 1580px, 400px, 700px);
+			@include size.calculate(height, 480px, 1580px, 246px, 430px);
+			max-height: none;
+			max-width: none;
+			bottom: 0;
+		}
+	}
+}
+
+/* banner for header */
+.sale-header {
+    --banner-header-height: 80px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: var(--banner-header-height);
+    overflow: hidden;
+
+    &__content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include size.calculate(gap, 480px, 1460px, 8px, 20px);
+        z-index: 2;
+
+        > * {
+            flex-shrink: 0;
+        }
+    }
+
+    &__date {
+        flex-shrink: 0;
+        padding: 10px;
+        border: 2px solid var(--white);
+        border-radius: 6px;
+        line-height: 1;
+        color: var(--white);
+
+        .day {
+            @include size.calculate(font-size, 480px, 1460px, 18px, 26px);
+        }
+
+        .month {
+            @include size.calculate(font-size, 480px, 1460px, 14px, 16px);
+        }
+    }
+
+    &__text {
+        flex: auto;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: var(--white);
+
+        p {
+            @include size.calculate(font-size, 480px, 1460px, 16px, 20px);
+            font-weight: 600;
+            line-height: 1;
+
+            & + * {
+                margin-top: 6px;
+            }
+        }
+        
+        small {
+            display: block;
+            @include size.calculate(font-size, 480px, 1460px, 12px, 15px);
+            line-height: 1;
+        }
+
+
+    }
+
+    &__img-center {
+        flex-shrink: 0;
+        width: 150px;
+        height: var(--banner-header-height);
+
+        picture,
+        img {
+            width: 100%;
+        }
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__offer {
+        flex: auto;
+        display: flex;
+        align-items: center;
+        @include size.calculate(gap, 480px, 1460px, 12px, 20px);        
+    }
+
+    &__controlls {
+        margin-left: auto;
+        width: auto;
+        display: flex;
+        @include size.calculate(gap, 480px, 1460px, 12px, 20px);
+    }
+
+    &__timer {
+        display: flex;
+        gap: 8px;
+        color: var(--white);
+    }
+
+    &__timer-value {
+        text-align: center;
+
+        small {
+            display: block;
+            @include size.calculate(font-size, 480px, 1460px, 10px, 14px);
+            line-height: 1;
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            object-position: center;
+        }
+    }
+
+    @media only screen and (max-width: 980px) {
+        &__controlls {
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        &__img {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        &__content {
+            flex-direction: column;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        &__text {
+            padding: 0;
+        }
+
+        &__controlls {
+            width: 100%;
+            margin-left: 0;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 12px;
+        }
+
+        &__date {
+            padding: 6px;
+            border-width: 1px;
+
+            .month {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &__img-center {
+            display: block;
+            position: absolute;
+            width: 110px;
+            height: auto;
+            bottom: 0;
+            right: -40px;
+        }
+
+        &__timer {
+            gap: 4px;
+        }
+    }
+
+    @media only screen and (max-width: 380px) {
+        &__date {
+            .month {
+                font-size: 10px;
+            }
+        }
+
+        &__text {
+            small {
+                font-size: 10px;
+            }
+        }
+
+        &__img-center {
+            width: 100px;
+        }
+
+        .button.small {
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (max-width: 340px) {
+        &__img-center {
+            display: none;
+        }
+    }
+}

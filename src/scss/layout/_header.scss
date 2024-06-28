@@ -1,0 +1,240 @@
+@use './mixins/fluid-size' as size;
+@use './mixins/disable-mob-hover' as mobile;
+
+.header {
+	--header-icon-size: calc(var(--scale) * 1.8);
+
+	&__top {
+		@include size.calculate(padding-top, 480px, 1580px, 12px, 30px);
+		@include size.calculate(padding-bottom, 480px, 1580px, 12px, 30px);
+		display: flex;
+		align-items: center;
+	}
+
+	&__burger {
+		display: none;
+
+		@media only screen and (max-width: 680px) {
+			display: block;
+
+			/* левый отступ для логотипа */
+			& + [class*='__logo'] {
+				margin-left: calc(var(--scale) * 1.4);
+			}
+		}
+	}
+
+	&__logo {
+		/* левый отступ для слогана */
+		& + [class*='__tagline'] {
+			margin-left: calc(var(--scale) * 0.8);
+		}
+
+		img {
+			width: calc(var(--scale) * 12);
+			max-width: 260px;
+
+			@media only screen and (max-width: 480px) {
+				max-width: 100px;
+			}
+		}
+	}
+
+	&__tagline {
+		max-width: 180px;
+		@include size.calculate(font-size, 480px, 1580px, 10px, 14px);
+		line-height: 1.3;
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--brand-beige);
+
+		@media only screen and (max-width: 880px) {
+			max-width: 150px;
+		}
+
+		@media only screen and (max-width: 780px) {
+			display: none;
+		}
+
+		> * {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+			letter-spacing: inherit;
+			text-transform: inherit;
+
+			> * {
+				display: block;
+			}
+		}
+	}
+
+	&__nav {
+		@include size.calculate(font-size, 480px, 1580px, 18px, 22px);
+		color: var(--gray);
+		text-decoration: none;
+		font-weight: 500;
+
+		@media only screen and (max-width: 680px) {
+			display: none;
+		}
+	}
+
+	&__menu {
+		display: flex;
+		text-decoration: none;
+
+		> li {
+			padding: 16px 0;
+			position: relative;
+			transition: var(--fast);
+			cursor: pointer;
+
+			&:hover {
+				.dropdown-list {
+					transform: translateY(0);
+					opacity: 1;
+					pointer-events: all;
+				}
+
+				/* ссылка или выпадающее меню */
+				a,
+				p,
+				span {
+					color: var(--white);
+
+					/* иконка стрелочка */
+					svg {
+						fill: var(--brand-yellow);
+					}
+				}
+			}
+
+			> * {
+				text-decoration: inherit;
+			}
+
+			/* выпадающее меню название */
+			p {
+				display: flex;
+				align-items: center;
+				transition: var(--fast);
+
+				/* иконка стрелочка */
+				svg {
+					margin-top: 0.2em;
+					margin-left: 0.4em;
+					width: 10px;
+					height: 10px;
+					fill: var(--gray);
+					transition: var(--fast);
+				}
+			}
+		}
+
+		> li + * {
+			margin-left: calc(var(--scale) * 2.4);
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		padding-left: calc(var(--scale) * 1.2);
+		text-decoration: none;
+
+		> * {
+			text-decoration: none;
+		}
+
+		& + [class*='__buttons'] {
+			margin-left: calc(var(--scale) * 1.6);
+		}
+
+		.contact-icon {
+			width: var(--header-icon-size);
+			height: var(--header-icon-size);
+			@include size.calculate(max-width, 480px, 1080px, 22px, 26px);
+			@include size.calculate(max-height, 480px, 1080px, 22px, 26px);
+
+			@include mobile.hover {
+				img {
+					filter: brightness(10);
+				}
+			}
+
+			& + [class*='contact'] {
+				margin-left: calc(var(--scale) * 1);
+			}
+
+			img {
+				height: 100%;
+				width: 100%;
+				transition: var(--fast);
+			}
+		}
+
+		.contact-tel {
+			@include size.calculate(font-size, 1080px, 1580px, 20px, 26px);
+			font-weight: 500;
+			line-height: 1;
+			color: var(--white);
+
+			@media only screen and (max-width: 1080px) {
+				width: var(--header-icon-size);
+				height: var(--header-icon-size);
+				@include size.calculate(max-width, 480px, 1080px, 22px, 26px);
+				@include size.calculate(max-height, 480px, 1080px, 22px, 26px);
+
+				/* скрываем номер телефона */
+				span {
+					display: none;
+				}
+			}
+
+			@include mobile.hover {
+				color: var(--brand-beige);
+			}
+
+			/* иконка телефона для мобальных */
+			img {
+				display: none;
+
+				@media only screen and (max-width: 1080px) {
+					/* показываем иконку телефона */
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+
+		@media only screen and (max-width: 680px) {
+			.button.small {
+                display: none;
+            }
+		}
+
+		@media only screen and (max-width: 580px) {
+			.dropdown-list {
+				left: auto;
+				right: 0;
+			}
+			.button {
+				&[data-forweb-path='moda-callback'],
+				&[href='https://t.me/soroka_support_bot']
+				{
+					display: none;
+				}
+			}
+		}
+
+		> * + * {
+			margin-left: calc(var(--scale) * 0.6);
+		}
+	}
+}

@@ -1,0 +1,62 @@
+@use './mixins/fluid-size' as size;
+
+.table {
+	--td-space: calc(var(--scale) * 0.6);
+
+	display: table;
+	width: 100%;
+	color: var(--black);
+
+	tr {
+		cursor: pointer;
+
+		&:last-child {
+			th,
+			td {
+				border-bottom: 0;
+			}
+		}
+
+		th,
+		td {
+			padding: var(--td-space);
+			border: 1px solid var(--black);
+			font-weight: 600;
+			@include size.calculate(font-size, 480px, 1680px, 10px, 16px);
+			line-height: 1.2;
+			letter-spacing: -0.03em;
+
+			&:first-child {
+				border-left: none;
+			}
+
+			&:last-child {
+				border-right: none;
+				text-align: right;
+			}
+		}
+
+		th {
+			font-weight: 600;
+			background: var(--container-bg);
+			color: var(--brand-black);
+		}
+
+		&:hover {
+			td,
+			th {
+				background: var(--blue-bg-block);
+
+				a {
+					color: var(--brand-black);
+				}
+			}
+		}
+
+		td {
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
