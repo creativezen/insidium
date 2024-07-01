@@ -150,7 +150,7 @@
 		}
 
 		& + [class*='__buttons'] {
-			margin-left: calc(var(--scale) * 1.6);
+			margin-left: calc(var(--scale) * 1.2);
 		}
 
 		.contact-icon {
@@ -166,7 +166,7 @@
 			}
 
 			& + [class*='contact'] {
-				margin-left: calc(var(--scale) * 1);
+				margin-left: calc(var(--scale) * 0.8);
 			}
 
 			img {
@@ -237,4 +237,10 @@
 			margin-left: calc(var(--scale) * 0.6);
 		}
 	}
+
+    @media only screen and (max-width: 580px) {
+        &__contacts .contact-icon {
+            display: none;
+        }
+    }
 }

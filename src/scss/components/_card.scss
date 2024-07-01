@@ -15,6 +15,11 @@
 	--card-feedback-height: 220px;
 	--card-cover-height: 660px;
 
+    &.auto {
+        height: 100%;
+        min-height: auto;
+    }
+
 	@media only screen and (max-width: 680px) {
 		--card-space: calc(var(--scale) * 1.1);
 		--card-feedback-height: 180px;
@@ -1023,6 +1028,7 @@
 	flex-direction: column;
 	@include size.calculate(min-height, 480px, 1580px, 300px, 440px);
 
+    &__number + &__content,
 	&__cover + &__content,
 	&__content + &__cover {
 		margin-top: auto;
@@ -1052,6 +1058,10 @@
 	&__cover {
 		position: inherit;
 	}
+
+    &__number {
+        @include size.calculate(font-size, 480px, 1460px, 40px, 60px);
+    }
 
 	&__icon {
 		width: 110px;

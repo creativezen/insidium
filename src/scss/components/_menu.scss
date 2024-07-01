@@ -49,6 +49,17 @@
 		}
 	}
 
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+
+        & + * {
+			margin-top: calc(var(--scale) * 2);
+		}
+    }
+
 	&__footer {
 		display: block;
 	}
@@ -56,4 +67,10 @@
 	&.active {
 		transform: translateX(0);
 	}
+
+    @media only screen and (min-width: 581px) {
+        &__social {
+            display: none;
+        }
+    }
 }
