@@ -422,9 +422,9 @@
         [class*='list'] {
             padding-left: 0 !important;
 
-            li {
+            /* li {
                 padding-left: 0 !important;
-            }
+            } */
         }
 	}
 
@@ -474,6 +474,10 @@
 		small {
 			line-height: 1.1;
 		}
+
+        .article & {
+            @include size.calculate(font-size, 480px, 1580px, 14px, 16px);
+        }
 	}
 
 	&__hero-img {

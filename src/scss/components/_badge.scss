@@ -8,7 +8,7 @@
 	border: 1px solid var(--dark-gray);
 	border-radius: 1000px;
 	background-color: var(--dark-gray);
-	@include size.calculate(font-size, 480px, 1580px, 13px, 17px);
+	@include size.calculate(font-size, 480px, 1580px, 12px, 15px);
 	font-weight: 600;
 	line-height: 1;
 	letter-spacing: -0.01em;

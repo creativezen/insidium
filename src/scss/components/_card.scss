@@ -35,7 +35,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	padding: var(--card-space);
+    @include size.calculate(padding, 480px, 1460px, 14px, 26px);
 	border-radius: var(--card-radius);
 	background-color: var(--card-background);
 	text-decoration: none;
@@ -1190,7 +1190,7 @@
 .card-offer {
 	@extend .card-proto;
 
-	padding: var(--card-space-medium);
+    @include size.calculate(padding, 480px, 1560px, 16px, 26px);
 	display: flex;
 	flex-direction: column;
 

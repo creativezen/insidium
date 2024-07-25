@@ -71,6 +71,19 @@ h2 {
 	& + * {
 		margin-top: calc(var(--scale) * 1.8);
 	}
+
+    /* Внутри тела статьи размер уменьшаем */
+    .article & {
+        @include size.calculate(font-size, 480px, 1580px, 34px, 68px);
+
+        & + * {
+            margin-top: calc(var(--scale) * 1.4);
+        }
+    }
+
+    .article .block-offer & {
+        @include size.calculate(font-size, 480px, 1580px, 30px, 58px);
+    }
 }
 
 h3 {
@@ -79,6 +92,15 @@ h3 {
 	& + * {
 		margin-top: calc(var(--scale) * 1.2);
 	}
+
+    /* Внутри тела статьи размер уменьшаем */
+    .article & {
+        @include size.calculate(font-size, 480px, 1580px, 30px, 58px);
+
+        & + * {
+            margin-top: calc(var(--scale) * 1);
+        }
+    }
 }
 
 h4 {
@@ -88,6 +110,15 @@ h4 {
 	& + * {
 		margin-top: calc(var(--scale) * 1);
 	}
+
+    /* Внутри тела статьи размер уменьшаем */
+    .article & {
+        @include size.calculate(font-size, 480px, 1580px, 20px, 38px);
+
+        & + * {
+            margin-top: calc(var(--scale) * 0.8);
+        }
+    }
 }
 
 h5 {
@@ -97,6 +128,15 @@ h5 {
 	& + * {
 		margin-top: calc(var(--scale) * 0.8);
 	}
+
+    /* Внутри тела статьи размер уменьшаем */
+    .article & {
+        @include size.calculate(font-size, 480px, 1580px, 18px, 26px);
+
+        & + * {
+            margin-top: calc(var(--scale) * 0.6);
+        }
+    }
 }
 
 h6 {
@@ -107,6 +147,15 @@ h6 {
 	& + * {
 		margin-top: calc(var(--scale) * 0.8);
 	}
+
+    /* Внутри тела статьи размер уменьшаем */
+    .article & {
+        @include size.calculate(font-size, 480px, 1580px, 16px, 20px);
+
+        & + * {
+            margin-top: calc(var(--scale) * 0.4);
+        }
+    }
 }
 
 blockquote {

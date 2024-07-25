@@ -1,1 +1,39 @@
 @use './mixins/fluid-size' as size;
+
+.aside {
+    height: 100%;
+
+    &__item + &__item {
+        margin-top: 30px;
+    }
+}
+
+.aside-nav {
+
+    &__header {
+        & + * {
+            margin-top: 30px;
+        }
+    }
+    
+    &__body {
+        *:not(div) {
+            display: block;
+            @include size.calculate(font-size, 480px, 1580px, 14px, 20px);
+            text-decoration: none;
+    
+            * {
+                font-size: inherit;
+                display: inline;
+                color: inherit;
+                text-decoration: inherit;
+            }
+            
+            & + * {
+                @include size.calculate(margin-top, 480px, 1560px, 8px, 16px);
+                @include size.calculate(padding-top, 480px, 1560px, 8px, 16px);
+                border-top: 1px solid var(--gray-arsenic);
+            }
+        }
+    }
+}

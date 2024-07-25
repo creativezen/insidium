@@ -50,7 +50,7 @@
 
 	&__content {
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		padding: var(--space-small);
 		border-radius: var(--radius-medium);
 		background-color: var(--black);
@@ -64,6 +64,7 @@
 		position: inherit;
 		flex-shrink: 0;
 		width: 26%;
+        height: auto;
 		max-width: 400px;
 		z-index: 1;
 
@@ -79,6 +80,10 @@
         @media only screen and (max-width: 680px) {
             width: 100%;
             max-width: none;
+        }
+
+        .card-offer {
+            height: 100%;
         }
 	}
 
