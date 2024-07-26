@@ -71,7 +71,7 @@
 	}
 
 	@media only screen and (max-width: 1320px) {
-		&[data-grid='3'] {
+		&[data-grid='3']:not(.aside) {
 			grid-column: 4 span;
 		}
 	}

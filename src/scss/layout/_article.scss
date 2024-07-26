@@ -138,6 +138,10 @@
 		margin-top: var(--article-space);
 	}
 
+    h2,h3,h4,h5,h6,p,blockquote,strong,b {
+        position: relative;
+    }
+
     table {
         border: 1px solid var(--gray-arsenic);
         width: 100%;
@@ -147,9 +151,14 @@
             @include size.calculate(padding-inline, 480px, 1460px, 8px, 12px);
             @include size.calculate(padding-top, 480px, 1460px, 4px, 8px);
             @include size.calculate(padding-bottom, 480px, 1460px, 4px, 8px);
-            // box-sizing: border-box !important;
             border: 1px solid var(--gray-arsenic);
         }
+    }
+
+    .alert {
+        @include size.calculate(padding, 480px, 1460px, 14px, 20px);
+        background: #564f4f;
+        border-left: 2px solid var(--brand-yellow);
     }
 }
 

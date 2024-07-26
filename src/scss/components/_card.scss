@@ -1255,6 +1255,12 @@
 		[class*='__header'] + * {
 			margin-top: var(--space-small);
 		}
+
+        .badge {
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+        }
 	}
 }
 
