@@ -53,6 +53,11 @@
 		& + * {
 			margin-top: var(--banner-space-medium);
 		}
+
+        > *:not(.button) {
+            @include size.calculate(font-size, 480px, 1460px, 32px, 58px);
+            text-transform: none;
+        }
 	}
 
 	&__text {

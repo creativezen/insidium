@@ -2046,7 +2046,12 @@
 		*:not(.button) {
 			color: inherit;
 			transition: inherit;
+            text-decoration: none;
 		}
+
+        h2,h3,h4,h5,h6 {
+            @include size.calculate(font-size, 480px, 1460px, 32px, 42px);
+        }
 
 		h2,
 		h3,
@@ -2056,8 +2061,8 @@
 			text-transform: none;
 		}
 
-		> *:not(h5) + * {
-			margin-top: var(--card-space);
+		> *:not(h2):not(h3):not(h4):not(h5):not(h6) + * {
+            @include size.calculate(margin-top, 480px, 1460px, 18px, 24px);
 		}
 
 		@media only screen and (max-width: 680px) {
