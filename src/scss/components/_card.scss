@@ -76,6 +76,10 @@
 		}
 	}
 
+    .swiper-slide & {
+        height: 100%;
+    }
+
 	&__img {
 		overflow: hidden;
 		@include size.calculate(height, 480px, 1580px, 200px, 280px);
@@ -133,10 +137,6 @@
 		& + * {
 			padding-top: calc(var(--scale) * 1);
 		}
-	}
-
-	&__footer {
-		margin-top: auto;
 	}
 
 	&.post {

@@ -120,7 +120,7 @@
 	}
 
 	a:not([class]) {
-		margin-top: 15px;
+		/* margin-top: 15px; */
 		display: inline-block;
 		font-weight: 600;
 		@include size.calculate(font-size, 480px, 1680px, 14px, 18px);

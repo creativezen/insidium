@@ -14,7 +14,7 @@
 
 	.swiper-slide {
 		@include size.calculate(max-width, 480px, 1580px, 420px, 660px);
-		height: 100%;
+		height: auto;
 	}
 
 	&[data-slider-type='flex'] {
