@@ -122,8 +122,9 @@
 	a:not([class]) {
 		/* margin-top: 15px; */
 		display: inline-block;
-		font-weight: 600;
-		@include size.calculate(font-size, 480px, 1680px, 14px, 18px);
+		font-weight: inherit;
+		/* @include size.calculate(font-size, 480px, 1680px, 14px, 18px); */
+        font-size: inherit;
 		line-height: 140%;
 		letter-spacing: -0.03em;
 		color: var(--brand-dark-blue);
@@ -159,6 +160,10 @@
         @include size.calculate(padding, 480px, 1460px, 14px, 20px);
         background: #564f4f;
         border-left: 2px solid var(--brand-yellow);
+    }
+
+    * + .alert {
+        margin-top: calc(var(--scale)* 1);
     }
 }
 
