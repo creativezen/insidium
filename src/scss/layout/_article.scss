@@ -15,10 +15,11 @@
 	padding: var(--article-space);
 	background-color: var(--brand-dark);
 	color: var(--white);
-
-	*:not([class]) {
-		color: inherit;
-	}
+    
+    *:not([class]):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        color: inherit;
+        font-size: inherit;
+    }
 }
 
 /* article */
@@ -69,7 +70,7 @@
 	ol:not([class]),
 	ul:not([class]) {
 		padding-left: var(--article-space-small);
-		@include size.calculate(font-size, 480px, 1680px, 16px, 22px);
+		/* @include size.calculate(font-size, 480px, 1680px, 16px, 22px); */
 		line-height: 1.4;
 
 		li {
@@ -164,6 +165,10 @@
 
     * + .alert {
         margin-top: calc(var(--scale)* 1);
+    }
+
+    b,strong {
+        color: var(--brand-yellow) !important;
     }
 }
 
