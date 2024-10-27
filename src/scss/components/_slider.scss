@@ -40,9 +40,9 @@
 		.swiper-slide {
 			@include size.calculate(max-width, 480px, 1580px, 300px, 380px);
 
-			[class*='card'].post {
+			/* [class*='card'].post {
 				height: 400px;
-			}
+			} */
 		}
 	}
 

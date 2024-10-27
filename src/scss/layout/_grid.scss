@@ -103,7 +103,8 @@
 		&[data-grid='8'],
 		&[data-grid='6'],
 		&[data-grid='4'],
-		&[data-grid='3'] {
+		&[data-grid='3'],
+        &[data-grid='3']:not(.aside) {
 			grid-column: 12 span;
 		}
 	}
