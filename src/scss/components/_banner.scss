@@ -298,7 +298,10 @@
 
     &__img-center {
         flex-shrink: 0;
-        width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        max-width: 150px;
         height: var(--banner-header-height);
 
         picture,

@@ -55,7 +55,8 @@
 	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + p,
 	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + blockquote,
 	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + .blockquote,
-	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + img {
+	> *:not(h2):not(h3):not(h4):not(h5):not(h6) + img,
+    > *:not(h2):not(h3):not(h4):not(h5):not(h6) + table {
 		margin-top: calc(var(--scale) * 1);
 	}
 
