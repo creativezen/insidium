@@ -13,7 +13,7 @@
 	--card-background: var(--brand-dark);
 
 	--card-feedback-height: 220px;
-	--card-cover-height: 660px;
+	--card-cover-height: 70vh;
 
     &.auto {
         height: 100%;
@@ -23,7 +23,7 @@
 	@media only screen and (max-width: 680px) {
 		--card-space: calc(var(--scale) * 1.1);
 		--card-feedback-height: 180px;
-		--card-cover-height: auto;
+		--card-cover-height: 80vh;
 	}
 }
 
@@ -1026,7 +1026,7 @@
 	padding: var(--card-space-medium);
 	display: flex;
 	flex-direction: column;
-	@include size.calculate(min-height, 480px, 1580px, 300px, 440px);
+	@include size.calculate(min-height, 680px, 1580px, 300px, 440px);
 
     &__number + &__content,
 	&__cover + &__content,
@@ -1136,6 +1136,29 @@
 		transition: var(--slow);
 		pointer-events: none;
 	}
+
+    @media only screen and (max-width: 580px) {
+        min-height: auto;
+
+        .grid-child:nth-child(even) & {
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+
+            &__cover {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            &__content {
+                margin-top: 20px;
+            }
+
+        }
+
+        &__cover + &__content {
+            margin-top: 20px;
+        }
+    }
 }
 
 /* card for button */
@@ -1194,7 +1217,8 @@
 	display: flex;
 	flex-direction: column;
 
-	> * + [class*='__footer'] {
+	> * + [class*='__footer'],
+    > * + noindex {
 		margin-top: auto;
 		padding-top: var(--card-space-medium);
 	}
@@ -1615,7 +1639,6 @@
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		max-height: 700px;
 		border-radius: var(--card-radius);
 		overflow: hidden;
 
@@ -1646,6 +1669,7 @@
 			height: 100%;
 			width: 100%;
 			object-fit: cover;
+            object-position: 50%;
 			filter: grayscale(100%);
 			transform: scale(1);
 			transition: var(--slow);
