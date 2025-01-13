@@ -264,3 +264,69 @@
 		transition: var(--fast);
 	}
 }
+
+
+/* button for telegram bot */
+.button-bot {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include size.calculate(height, 480px, 1580px, 38px, 64px);   
+    @include size.calculate(width, 480px, 1580px, 38px, 64px);
+    background-color: var(--brand-purple);
+    border-radius: 50%;
+    z-index: 10000;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: var(--brand-purple);
+        border-radius: 50%;
+        z-index: 1;
+        animation: button-round-animation 2.6s infinite;
+    }
+
+    @include mobile.hover {
+        background-color: var(--brand-beige);
+        
+        &::before {
+            -webkit-animation-play-state:paused;
+            -moz-animation-play-state:paused;
+            -o-animation-play-state:paused;
+            animation-play-state:paused;
+        }
+
+        svg {   
+            fill: var(--black);
+        }
+    }
+
+    > * {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        object-position: 50%;
+    }
+    
+    svg {
+        fill: var(--white);
+    }
+}
+
+@keyframes button-round-animation {
+    0% {
+      transform: scale(1);
+      opacity: .9;
+      z-index: 1;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+      z-index: 1;
+    }
+  }
